@@ -34,7 +34,8 @@ class MainActivity : ComponentActivity() {
             Kalkulator111Theme {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background)
+                    color = MaterialTheme.colorScheme.background
+                )
                 {
                     KalkulatorApp()
                 }
@@ -44,74 +45,110 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun TombolKalk(text: String, modifier: Modifier = Modifier, fontSize: TextUnit = TextUnit.Unspecified){
-    Button(onClick = { println("Button clicked") },
-        modifier = modifier) {
-        Text(text = text, fontSize = fontSize)
+fun TombolKalk(
+    text: String,
+    modifier: Modifier = Modifier,
+    fontSize: TextUnit = TextUnit.Unspecified
+) {
+    Button(
+        onClick = { println("Button clicked") },
+        modifier = modifier
+    ) {
+        Text(
+            text = text,
+            fontSize = fontSize,
+            modifier = Modifier.padding(vertical = 12.dp)
+        )
     }
 
 }
+
 @Preview
 @Composable
-fun KalkulatorApp(){
-    Column {
+fun KalkulatorApp() {
+
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(16.dp),
+        verticalArrangement = Arrangement.spacedBy(12.dp)
+    ) {
 
         Text(
             text = "Kalkulator",
-            color = Color.LightGray,
+            color = MaterialTheme.colorScheme.primary,
             fontSize = 40.sp,
             textAlign = TextAlign.Center,
-            modifier = Modifier.fillMaxWidth().padding(top = 16.dp, bottom = 16.dp)
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(top = 16.dp, bottom = 16.dp)
         )
 
         Text(
             text = "0",
             textAlign = TextAlign.End,
-            fontSize = 36.sp,
+            fontSize = 48.sp,
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(bottom = 16.dp),
-            color = Color.Black,
+                .padding(horizontal = 16.dp, vertical = 24.dp),
+            color = MaterialTheme.colorScheme.onSurface,
             maxLines = 1
         )
 
-        Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(16.dp))
-        {  //fillmaxwidth mengisi lebar layar, arrangement spacedby memberi jarak tetap di antara komponen row
-            TombolKalk(text = "C", modifier = Modifier.weight(1f))
-            TombolKalk(text = "DEL", modifier = Modifier.weight(1f))
-            TombolKalk(text = "%", modifier = Modifier.weight(1f))
-            TombolKalk(text = "/", modifier = Modifier.weight(1f))
+        val buttonFontSize = 24.sp
+
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.spacedBy(16.dp)
+        )
+        {
+            TombolKalk(text = "C", modifier = Modifier.weight(1f), fontSize = buttonFontSize)
+            TombolKalk(text = "DEL", modifier = Modifier.weight(1f), fontSize = 18.sp)
+            TombolKalk(text = "%", modifier = Modifier.weight(1f), fontSize = buttonFontSize)
+            TombolKalk(text = "/", modifier = Modifier.weight(1f), fontSize = buttonFontSize)
         }
 
-        Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(16.dp))
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.spacedBy(16.dp)
+        )
         {
-            TombolKalk(text = "7", modifier = Modifier.weight(1f))
-            TombolKalk(text = "8", modifier = Modifier.weight(1f))
-            TombolKalk(text = "9", modifier = Modifier.weight(1f))
-            TombolKalk(text = "x", modifier = Modifier.weight(1f))
+            TombolKalk(text = "7", modifier = Modifier.weight(1f), fontSize = buttonFontSize)
+            TombolKalk(text = "8", modifier = Modifier.weight(1f), fontSize = buttonFontSize)
+            TombolKalk(text = "9", modifier = Modifier.weight(1f), fontSize = buttonFontSize)
+            TombolKalk(text = "x", modifier = Modifier.weight(1f), fontSize = buttonFontSize)
         }
 
-        Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(16.dp))
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.spacedBy(16.dp)
+        )
         {
-            TombolKalk(text = "4", modifier = Modifier.weight(1f))
-            TombolKalk(text = "5", modifier = Modifier.weight(1f))
-            TombolKalk(text = "6", modifier = Modifier.weight(1f))
-            TombolKalk(text = "-", modifier = Modifier.weight(1f))
+            TombolKalk(text = "4", modifier = Modifier.weight(1f), fontSize = buttonFontSize)
+            TombolKalk(text = "5", modifier = Modifier.weight(1f), fontSize = buttonFontSize)
+            TombolKalk(text = "6", modifier = Modifier.weight(1f), fontSize = buttonFontSize)
+            TombolKalk(text = "-", modifier = Modifier.weight(1f), fontSize = buttonFontSize)
         }
 
-        Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(16.dp))
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.spacedBy(16.dp)
+        )
         {
-            TombolKalk(text = "1", modifier = Modifier.weight(1f))
-            TombolKalk(text = "2", modifier = Modifier.weight(1f))
-            TombolKalk(text = "3", modifier = Modifier.weight(1f))
-            TombolKalk(text = "+", modifier = Modifier.weight(1f))
+            TombolKalk(text = "1", modifier = Modifier.weight(1f), fontSize = buttonFontSize)
+            TombolKalk(text = "2", modifier = Modifier.weight(1f), fontSize = buttonFontSize)
+            TombolKalk(text = "3", modifier = Modifier.weight(1f), fontSize = buttonFontSize)
+            TombolKalk(text = "+", modifier = Modifier.weight(1f), fontSize = buttonFontSize)
         }
 
-        Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(16.dp))
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.spacedBy(16.dp)
+        )
         {
-            TombolKalk(text = "0", modifier = Modifier.weight(2f))
-            TombolKalk(text = ",", modifier = Modifier.weight(1f))
-            TombolKalk(text = "=", modifier = Modifier.weight(1f))
+            TombolKalk(text = "0", modifier = Modifier.weight(2f), fontSize = buttonFontSize)
+            TombolKalk(text = ",", modifier = Modifier.weight(1f), fontSize = buttonFontSize)
+            TombolKalk(text = "=", modifier = Modifier.weight(1f), fontSize = buttonFontSize)
         }
     }
 }
