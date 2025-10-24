@@ -71,7 +71,7 @@ fun KalkulatorApp(){
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(bottom = 16.dp),
-            color = Color.White,
+            color = Color.Black,
             maxLines = 1
         )
 
